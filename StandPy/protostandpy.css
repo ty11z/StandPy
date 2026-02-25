@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(67, 66, 72);
+}
+
+#bar{
+    background-color: rgba(94, 108, 228, 0.2);
+    width: 800px;
+    height: 35px;
+    text-decoration-color: aliceblue;
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#pipes{
+    margin-top: 15px;
+    background-color: rgba(94, 108, 228, 0.2);
+    width: 49%;
+    height: 640px;
+    text-decoration-color: aliceblue;
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#tty-clock{
+    margin-top: 14px;
+    margin-left: 730px;
+    background-color: rgba(94, 108, 228, 0.2);
+    width: 40%;
+    height: 20px;
+    text-decoration-color: aliceblue;
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}

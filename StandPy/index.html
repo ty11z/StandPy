@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>StandPy Ambient</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 40px;
+  transition: background-image 2s ease-in-out;
+}
+
+#info {
+  text-align: right;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.3);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#time {
+  font-size: 48px;
+}
+
+#weather {
+  font-size: 18px;
+  margin-top: 5px;
+}
+</style>
+</head>
+<body>
+
+<div id="info">
+  <div id="time"></div>
+  <div id="weather"></div>
+</div>
+
+<script>
+const totalImages = 101; // change if needed
+let current = 1;
+
+function changeBackground() {
+  const pngPath = `./Wallpapers/Japan (${current}).png`;
+  const jpgPath = `./Wallpapers/Japan (${current}).jpg`;
+
+  const img = new Image();
+  img.src = pngPath;
+
+  img.onload = () => {
+    document.body.style.backgroundImage = `url('${pngPath}')`;
+  };
+
+  img.onerror = () => {
+    document.body.style.backgroundImage = `url('${jpgPath}')`;
+  };
+
+  current++;
+  if (current > totalImages) current = 1;
+}
+
+setInterval(changeBackground, 600000); // 10 minutes
+changeBackground();
+}
+
+setInterval(changeBackground, 600000); // 10 minutes
+changeBackground();
+
+function updateTime() {
+  const now = new Date();
+  document.getElementById("time").innerText =
+    now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+}
+setInterval(updateTime, 1000);
+updateTime();
+
+fetch("https://wttr.in/?format=3")
+  .then(response => response.text())
+  .then(data => document.getElementById("weather").innerText = data);
+</script>
+
+</body>
+</html>
